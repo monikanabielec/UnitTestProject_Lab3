@@ -24,10 +24,12 @@ namespace UnitTestProject_Lab2
         public void TestOrderIdWhenObjectIsAdded
             ()
         {
-            Mock<IStorage> _storageMock = new Mock<IStorage>();
-            var _order = new Order();
-            var _service = new OrderService(_storageMock.Object);
-            _storageMock.Setup(m => m.Store(2).CompareTo(2));
+            var storageMock = new Mock<IStorage>();
+            storageMock.Setup(e => e.Store(1)).Returns(1);
+
+            var order = new Order();
+
+            Assert.True(order.Equals);
             
 
             //when false
